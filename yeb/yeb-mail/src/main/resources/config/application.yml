@@ -1,0 +1,62 @@
+server:
+  # 端口
+  port: 8082
+spring:
+  # 邮件配置
+  mail:
+   # 邮件服务器地址
+   host: smtp.qq.com
+   # 协议
+   protocol: smtp
+   # 编码格式
+   default-encoding: utf-8
+   # 授权码（在邮箱开通服务时获取）
+   password: pivucldzuadtdhjg
+   # 发送者邮箱地址
+   username: 2570700075@qq.com
+   # 端口（不同邮箱端口号不同）
+   port: 25
+    # rabbitmq配置
+  rabbitmq:
+     # 用户名
+   username: guest
+     # 密码
+   password: guest
+     # 服务器地址
+   host: 120.76.134.149
+     # 端口
+   port: 5672
+     # 消息确认回调
+   listener:
+     simple:
+       #开启手动确认
+       acknowledge-mode: manual
+  redis:
+    # redis服务器
+    host: 120.76.134.149
+    # 服务器端口号
+    port: 6380
+    # 密码 没有则可以不填
+    password: root
+    # 选择哪个库，默认库为0
+    database: 0
+    # 连接超时时间
+    timeout: 10000ms
+    lettuce:
+      pool:
+        # 最大活跃链接数 默认8
+        max-active: 1024
+        # 最大连接阻塞等待时间，单位毫秒
+        max-wait: 10000ms
+        # 最大空闲连接数 默认8
+        max-idle: 200
+        # 最小空闲连接数 默认0
+        min-idle: 5
+      #哨兵模式
+    sentinel:
+      #主节点名称
+      master: mymaster
+      #节点
+      nodes: 120.76.134.149:26379,120.76.134.149:26380,120.76.134.149:26381
+
+    # rabbitmq配置
